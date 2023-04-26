@@ -19,7 +19,7 @@ public class ExcelApiTest {
     protected static final int COLUMN_COUNT = 6;
 
     static Stream<ExcelApi> implementations() throws WriteException, IOException {
-        return Stream.of(new ApacheExcel(), new JExcel());
+        return Stream.of(new JExcel(), new ApacheExcel(), new ApacheExcelStreaming());
     }
 
     @ParameterizedTest

@@ -87,7 +87,6 @@ public class JExcel implements ExcelApi {
 
     @Override
     public void saveAs(String fileLocation) throws IOException, WriteException {
-        System.out.println("Saving "+ fileLocation);
         workbook.setOutputFile(new File(fileLocation));
         workbook.write();
     }

@@ -2,20 +2,21 @@ package excel;
 
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.apache.poi.xssf.streaming.SXSSFSheet;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-public class ApacheExcel implements ExcelApi {
-    private final XSSFWorkbook workbook;
-    private final Sheet sheet;
+public class ApacheExcelStreaming implements ExcelApi {
+    private final SXSSFWorkbook workbook;
+    private final SXSSFSheet sheet;
     private final HashMap<FontHighlight, CellStyle> styles;
 
-    public ApacheExcel() {
-        this.workbook = new XSSFWorkbook();
+    public ApacheExcelStreaming() {
+        this.workbook = new SXSSFWorkbook();
         this.sheet = workbook.createSheet();
 
         this.sheet.setColumnWidth(0, 6000);
